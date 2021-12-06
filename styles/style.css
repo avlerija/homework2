@@ -1,0 +1,230 @@
+body {
+    font-family: Verdana;
+    background-color: rgba(255, 222, 191, 0.767);
+    text-align: center;
+    margin: 30px;
+   
+    display: grid;
+    grid-gap: 1em;
+    grid-template-areas: 
+        "header"
+        "hero"
+        "body"
+        "footer";
+}
+
+header {
+    font-size: 23px;
+    padding: 8px;
+    display: grid;
+    grid-area: header;
+    background:white;
+    border-radius: 7px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+    grid-template-areas:
+        "brand brand"
+        "nav tools";
+
+}
+header .brand {
+    border-radius: 7px;
+    grid-area: brand;
+}
+header nav{
+    border-radius: 7px;
+    grid-area: nav;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:rgb(243, 239, 239)
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    display: inline;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color:rgba(255, 222, 191, 0.767);
+    color: white;
+}
+
+header .tools {
+    grid-area: tools;
+}
+
+.hero{
+    background: white;
+    border-radius: 7px;
+    padding: 10px;
+    place-items: center;
+    grid-area: hero;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-areas: "action";
+}
+.hero .action{
+    grid-area: action;
+}
+.hero .feature{
+    grid-area: feature;
+}
+.feature img{
+    height: 200px;
+    width: 300px;
+    border-radius: 7px;
+}
+main{
+    background: white;
+    padding: 10px;
+    grid-area: body;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+main .article-feature{
+    grid-area:feature;
+}
+main .article-feature img{
+    width: 80%;
+    height: 75%;
+    border-radius: 7px;
+}
+main .mobile-ad{
+    grid-area: ad;
+}
+main .article-listing{
+    grid-area: listing;
+    text-shadow: 1px 1px 2px white, 0 0 25px rgb(223, 219, 219), 0 0 5px rgb(214, 204, 204);
+}
+
+footer{
+    background:white;
+    padding: 20px;
+    border-radius: 7px;
+    grid-area: footer;
+}
+
+.desktop-ad{
+    grid-area: ad;
+    display: none;
+}
+.hero .feature{
+    display: none;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    display: none;
+}
+.sidebar .feature{
+    background:white;
+    border-radius: 7px;
+    height: 500px;
+}
+
+.mobile-ad img{
+   vertical-align: center; 
+   width: 100%;
+}
+.desktop-ad img{
+    vertical-align: center;
+    width: 100%;
+}
+
+.desktop-ad:hover{
+    opacity: 0.8;
+}
+.mobile-ad:hover{
+    opacity: 0.8;
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas: 
+        "header"
+        "hero"
+        "body"
+        "sidebar"
+        "footer";
+    }
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: "brand nav tools";
+    }
+
+    .hero{
+        grid-template-areas: 
+        "feature"
+        "action";
+    }
+    .hero .feature{
+        display: block;
+    }
+
+    main{
+        grid-template-columns: 1fr 400px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas: 
+        "feature ad"
+        "listing listing";
+    }
+    .sidebar{
+        display: grid;
+    }
+    .mobile-ad img{
+        width: 400px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 250px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: 
+        "header header"
+        "hero ad"
+        "body sidebar"
+        "footer footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: "brand nav tools";
+    }
+    .hero{
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+        "feature action";
+    }
+    main{
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+        "feature listing";
+    }
+    .mobile-ad {
+        display: none;
+    }
+    .desktop-ad{
+        display: block;
+    }
+}
